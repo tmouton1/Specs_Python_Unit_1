@@ -3,7 +3,31 @@
 ## This step's instructions explains how to use the open() function, to write and read info from a .txt file. Follow the instructions to create and call a function to add a book, based off of the previous dictionaries for our library, to the .txt file properly formatted with commas as separators.
 
 # Code here
+def create_book(book_list):
+    title = input("What is the name of the book you would like to add? ")
+    author = input("Who is the author of the book you would like to add? ")
+    
+    try: 
+        rating = float(input("What rating would you give the book? Rate 1-5. ")) 
 
+    except: 
+        rating = float(input("Please type a rating using decimal numbers, i.e. 1.0 or 1.5. "))
+
+    try: 
+        year = int(input("What year was the book published? "))
+
+    except: 
+        year = int(input("Please enter a number for the pubishing year. "))
+
+    try: 
+        pages = int(input("How many pages is the book? "))
+
+    except: 
+        pages = int(input("Please enter a number for the amount of book pages. ")) 
+
+
+    with open("library.txt", "a") as file:
+        file.write("title, author, year, rating, pages/n")
 
 ### Step 2 - Read data from a .txt
 
@@ -11,6 +35,10 @@
 
 # Code here
 
+def view_all_books(book_list):
+    print("Here is a list of our full book catalog.")
+    with open("library.txt", "r") as f:
+       file = f.readlines()
 
 ### Step 3 - if __name__ == "__main__":
 
